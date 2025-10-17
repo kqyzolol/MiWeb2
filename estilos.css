@@ -1,0 +1,219 @@
+/* =============================
+   RESET BÁSICO
+============================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Fira Code', 'JetBrains Mono', monospace;
+  background-color: #0a0a0a;
+  color: #e0e0e0;
+  overflow-x: hidden;
+}
+
+/* =============================
+   NAVBAR
+============================= */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: rgba(15, 15, 15, 0.95);
+  border-bottom: 1px solid rgba(0, 255, 200, 0.2);
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  backdrop-filter: blur(8px);
+}
+
+.logo {
+  font-weight: 700;
+  color: #00ffc8;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: #e0e0e0;
+  text-decoration: none;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #00ffc8;
+  transform: translateY(-2px);
+}
+
+/* =============================
+   HERO / BACKGROUND VIDEO
+============================= */
+.hero, .hero-aboutme {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  filter: brightness(0.35) blur(1px);
+}
+
+.hero::before, .hero-aboutme::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(0,255,200,0.1), rgba(0,0,0,0.9));
+  z-index: -1;
+}
+
+/* =============================
+   TITULOS ANIMADOS
+============================= */
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #00ffc8;
+  text-shadow: 0 0 10px #00ffc8, 0 0 20px #00ffc8;
+  margin-bottom: 1rem;
+  animation: fadeInUp 1.5s ease forwards;
+}
+
+.hey {
+  display: block;
+  background: linear-gradient(90deg, #00ffc8, #00bcd4, #007bff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 3s infinite alternate ease-in-out;
+}
+
+/* =============================
+   EFECTO TYPING (texto principal)
+============================= */
+.typing {
+  display: inline-block;
+  border-right: 3px solid #00ffc8;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 4s steps(40, end), blink 0.8s infinite;
+  font-size: 1.2rem;
+  color: #e0e0e0;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* =============================
+   TEXTO SECUNDARIO
+============================= */
+.intro p, .intro-aboutme p {
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 1rem auto 0 auto;
+  color: #b0b0b0;
+  line-height: 1.6;
+  opacity: 0;
+  animation: fadeIn 2.5s ease forwards 1s;
+}
+
+/* =============================
+   BOTONES
+============================= */
+.btn-game {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.8rem 2rem;
+  color: #00ffc8;
+  border: 1px solid #00ffc8;
+  border-radius: 6px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: transparent;
+  transition: all 0.4s ease;
+}
+
+.btn-game:hover {
+  background: #00ffc8;
+  color: #000;
+  box-shadow: 0 0 15px #00ffc8;
+}
+
+/* =============================
+   ANIMACIONES Y EFECTOS
+============================= */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* =============================
+   LISTAS DE CONTENIDO
+============================= */
+.content-game {
+  list-style: none;
+  margin-top: 2rem;
+}
+
+.content-game li {
+  margin-bottom: 1rem;
+  color: #e0e0e0;
+  font-size: 1rem;
+  animation: fadeIn 2s ease forwards;
+}
+
+.content-game li::before {
+  content: "> ";
+  color: #00ffc8;
+}
+
+/* =============================
+   FOOTER
+============================= */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #0c0c0c;
+  border-top: 1px solid rgba(0,255,200,0.2);
+  color: #777;
+  font-size: 0.9rem;
+}
